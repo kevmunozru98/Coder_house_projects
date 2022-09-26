@@ -42,13 +42,12 @@ CREATE TABLE `Express_Colombia`.`payments` (
   `vehicule_id` INT NULL,
   `vehicule_type` VARCHAR(45) NULL,
   `employee_id` INT NULL,
-  `office_id` INT NOT NULL,
-  PRIMARY KEY (`supplier_id`),
-  FOREIGN KEY (`office_id`) REFERENCES office(`office_id`));
+  PRIMARY KEY (`supplier_id`));
   
   -- tabla de office
   CREATE TABLE `Express_Colombia`.`office` (
   `office_id` INT NOT NULL,
   `city` VARCHAR(45) NULL,
-  `employee_id` INT NULL,
-  PRIMARY KEY (`office_id`));
+  `supplier_id` INT NOT NULL,
+  PRIMARY KEY (`office_id`),
+  FOREIGN KEY (`supplier_id`) REFERENCES suppliers(`supplier_id`));
